@@ -726,8 +726,8 @@ static bool board_is_ya15xc(void)
 //reset the wifi-bt
 static int wifi_bt_power(void)
 {
-        ofnode node1, node2;
-        struct gpio_desc wifi, bt;
+        ofnode node1, node2,node3;
+        struct gpio_desc wifi, bt,backlight;
         int ret = 0;
 
         node1 = ofnode_path("/wifi_bt_power/wifi");
@@ -738,6 +738,11 @@ static int wifi_bt_power(void)
         node2 = ofnode_path("/wifi_bt_power/bt");
         if (!ofnode_valid(node2)) {
                 printf("%s:  no bt-power?\n", __func__);
+                return -ENOENT;
+        }
+	node3 = ofnode_path("/wifi_bt_power/backlight");
+        if (!ofnode_valid(node3)) {
+                printf("%s:  no backlight-power?\n", __func__);
                 return -ENOENT;
         }
 
@@ -753,6 +758,12 @@ static int wifi_bt_power(void)
                          __func__);
                 return -ENOENT;
         }
+	if (gpio_request_by_name_nodev(node3, "gpios", 0,
+                                       &backlight, GPIOD_IS_OUT)) {
+                printf("%s: could not find reset-gpios2\n",
+                         __func__);
+                return -ENOENT;
+        }
 
         ret = dm_gpio_set_value(&wifi, 0);
         if (ret) {
@@ -762,6 +773,11 @@ static int wifi_bt_power(void)
         ret = dm_gpio_set_value(&bt, 0);
         if (ret) {
                 pr_err("%s: can't set_value for bt reset gpio", __func__);
+                goto error;
+        }
+	ret = dm_gpio_set_value(&backlight, 0);
+        if (ret) {
+                pr_err("%s: can't set_value for backlight reset gpio", __func__);
                 goto error;
         }
         mdelay(10);//delay
@@ -774,6 +790,11 @@ static int wifi_bt_power(void)
         ret = dm_gpio_set_value(&bt, 1);
         if (ret) {
                 pr_err("%s: can't set_value for bt reset gpio", __func__);
+                goto error;
+        }
+	ret = dm_gpio_set_value(&backlight, 1);
+        if (ret) {
+                pr_err("%s: can't set_value for backlight reset gpio", __func__);
                 goto error;
         }
 

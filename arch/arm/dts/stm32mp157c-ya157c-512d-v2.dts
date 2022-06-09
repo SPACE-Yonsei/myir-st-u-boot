@@ -53,13 +53,18 @@
                     label = "phy-rest";
                     gpios = <&gpiog 0 GPIO_ACTIVE_HIGH>;
                 };
+		backlight {
+                    label = "backlight-rst";
+                    gpios = <&gpiob 8 GPIO_ACTIVE_HIGH>;
+                };
    	 };
+	/*
 	panel_backlight: panel-backlight {
 		compatible = "gpio-backlight";
 		gpios = <&gpiob 8 GPIO_ACTIVE_HIGH>;
 		default-on;
 		status = "okay";
-	};
+	};*/
 	
 	usb_phy_tuning: usb-phy-tuning {
 		st,hs-dc-level = <2>;
@@ -209,7 +214,7 @@
 		pinctrl-1 = <&ltdc_pins_sleep_a>;
 		enable-gpios = <&gpioe 12 GPIO_ACTIVE_HIGH>;
 		reset-gpios = <&gpioe 11 GPIO_ACTIVE_HIGH>;
-		backlight = <&panel_backlight>;
+		//backlight = <&panel_backlight>;
 		status = "okay";
 
 		port {
