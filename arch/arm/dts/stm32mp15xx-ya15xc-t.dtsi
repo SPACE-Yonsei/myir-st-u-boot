@@ -89,6 +89,10 @@
                     label = "phy-rest";
                     gpios = <&gpiog 3 GPIO_ACTIVE_HIGH>;
                 };
+		backlight {
+                    label = "backlight-rst";
+                    gpios = <&gpiog 8 GPIO_ACTIVE_HIGH>;
+                };
          };
 
 
