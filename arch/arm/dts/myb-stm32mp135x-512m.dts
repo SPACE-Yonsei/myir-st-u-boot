@@ -8,8 +8,8 @@
 #include "myb-stm32mp135x-base.dts"
 
 / {
-	model = "STMicroelectronics STM32MP135F-DK Discovery Board";
-	compatible = "st,stm32mp135f-dk", "st,stm32mp135";
+	model = "STMicroelectronics MYIR EMMC  Board";
+	compatible = "myb-stm32mp135x-512m", "st,stm32mp135";
 
 	aliases {
 		ethernet0 = &eth1;
