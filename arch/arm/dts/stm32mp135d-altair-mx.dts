@@ -48,12 +48,12 @@
 		optee_framebuffer@dd000000 {
 			reg = <0xdd000000 0x10000000>;
 			no-map;
-		}
+		};
 
 		optee@de000000 {
 			reg = <0xde000000 0x20000000>;
 			no-map;
-		}
+		};
 
 		/* USER CODE BEGIN reserved-memory */
 		/* USER CODE END reserved-memory */
