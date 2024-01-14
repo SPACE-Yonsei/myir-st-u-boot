@@ -29,7 +29,7 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 		ranges;
-		stdout-path = "serial0:115200n8"
+		stdout-path = "serial0:115200n8";
 	};
 
 	memory@c0000000 {
