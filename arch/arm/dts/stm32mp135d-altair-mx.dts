@@ -18,8 +18,19 @@
 /* USER CODE END includes */
 
 / {
-	model = "stm32mp135d-altair-mx.dts";
+	model = "Altair::Main Processor Unit of Avionics - UMi";
 	compatible = "st,stm32mp135d-altair-mx", "st,stm32mp135";
+
+	aliases {
+		serial0 = &uart4;
+	};
+
+	chosen {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+		stdout-path = "serial0:115200n8"
+	}
 
 	memory@c0000000 {
 		device_type = "memory";
@@ -33,6 +44,16 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 		ranges;
+
+		optee_framebuffer@dd000000 {
+			reg = <0xdd000000 0x10000000>;
+			no-map;
+		}
+
+		optee@de000000 {
+			reg = <0xde000000 0x20000000>;
+			no-map;
+		}
 
 		/* USER CODE BEGIN reserved-memory */
 		/* USER CODE END reserved-memory */
@@ -836,6 +857,15 @@
 	pinctrl-0 = <&sdmmc2_pins_mx>;
 	pinctrl-1 = <&sdmmc2_opendrain_pins_mx>;
 	pinctrl-2 = <&sdmmc2_sleep_pins_mx>;
+	non-removable;
+	no-sd;
+	no-sdio;
+	bus-width = <8>;
+	// vmmc-supply = &<v3v3_ao>;
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	status = "okay";
 
 	/* USER CODE BEGIN sdmmc2 */
