@@ -869,13 +869,6 @@
 	/* USER CODE END rcc */
 };
 
-&rng{
-	status = "okay";
-
-	/* USER CODE BEGIN rng */
-	/* USER CODE END rng */
-};
-
 &rtc{
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&rtc_pins_mx>;
