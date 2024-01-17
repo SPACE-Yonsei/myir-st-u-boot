@@ -761,6 +761,13 @@
 	/* USER CODE END eth1 */
 };
 
+&hash{
+	status = "okay";
+
+	/* USER CODE BEGIN hash */
+	/* USER CODE END hash */
+};
+
 &i2c1{
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&i2c1_pins_mx>;
