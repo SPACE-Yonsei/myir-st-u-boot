@@ -1,4 +1,4 @@
-#include "stm32mp135d-altair-base.dts"
+#include "stm32mp135d-altair-mx-base.dts"
 
 / {
 	model = "Altair::Main Processor Unit of Avionics - UMi";
