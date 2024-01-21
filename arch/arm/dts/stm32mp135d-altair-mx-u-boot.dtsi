@@ -45,7 +45,7 @@
 	u-boot,dm-pre-reloc;
 };
 
-&uart4_pins_a {
+&uart4_pins_mx {
 	u-boot,dm-pre-reloc;
 	pins1 {
 		u-boot,dm-pre-reloc;
