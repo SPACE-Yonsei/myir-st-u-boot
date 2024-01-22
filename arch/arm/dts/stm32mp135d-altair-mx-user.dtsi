@@ -53,7 +53,7 @@
 
 &usbotg_hs {
 	dr_mode = "peripheral";
-;
+};
 
 &usbphyc_port0 {
 	phy-supply = <&scmi_vdd_usb>;
