@@ -26,38 +26,41 @@
 			no-map;
 		};
 	};
+};
 
-	v3v3_ao: v3v3_ao {
-		compatible = "regulator-fixed";
-		regulator-name = "v3v3_ao";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		regulator-always-on;
+&scmI_regu {
+	scmi_v3v3: voltd-v3v3 {
+		voltd-name = "v3v3";
+		regulator-name = "v3v3";
 	};
-
-	vdd_usb: vdd_usb {
-		compatible = "regulator-fixed";
+	scmi_vdd: voltd-vdd {
+		voltd-name = "vdd";
+		regulator-name = "vdd";
+	};
+	scmi_vdd_ddr: voltd-vdd_ddr {
+		voltd-name = "vdd_ddr";
+		regulator-name = "vdd_ddr";
+	};
+	scmi_vddcore: voltd-vddcore {
+		voltd-name = "vddcore";
+		regulator-name = "vddcore";
+	};
+	scmi_vdd_usb: voltd-vdd_usb {
+		voltd-name = "vdd_usb";
 		regulator-name = "vdd_usb";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		regulator-always-on;
 	};
 };
 
 &usbotg_hs {
-	u-boot,force-b-session-valid;
-	u-boot,force-vbus-detection;
 	dr_mode = "peripheral";
-	usb-role-switch;
-	role-switch-default-mode = "peripheral";
-};
+;
 
 &usbphyc_port0 {
-	phy-supply = <&vdd_usb>;
+	phy-supply = <&scmi_vdd_usb>;
 };
 
 &usbphyc_port1 {
-	phy-supply = <&vdd_usb>;
+	phy-supply = <&scmi_vdd_usb>;
 };
 
 &vdd_usb {
