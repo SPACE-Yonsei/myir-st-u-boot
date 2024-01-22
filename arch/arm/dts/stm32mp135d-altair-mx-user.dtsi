@@ -26,6 +26,14 @@
 			no-map;
 		};
 	};
+
+	vdd_usb: vdd_usb {
+		compatible = "regulator-fixed";
+		regulator-name = "vdd_usb";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-always-on;
+	};
 };
 
 &scmi_regu {
@@ -61,5 +69,9 @@
 };
 
 &usbphyc_port0 {
-	phy-supply = <&scmi_vdd_usb>;
+	phy-supply = <&vdd_usb>;
+};
+
+&vdd_usb {
+	u-boot,dm-pre-reloc;
 };
