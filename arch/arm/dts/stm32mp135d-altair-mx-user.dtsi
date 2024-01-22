@@ -62,7 +62,3 @@
 &usbphyc_port1 {
 	phy-supply = <&scmi_vdd_usb>;
 };
-
-&vdd_usb {
-	u-boot,dm-pre-reloc;
-};
