@@ -28,7 +28,7 @@
 	};
 };
 
-&scmI_regu {
+&scmi_regu {
 	scmi_v3v3: voltd-v3v3 {
 		voltd-name = "v3v3";
 		regulator-name = "v3v3";
