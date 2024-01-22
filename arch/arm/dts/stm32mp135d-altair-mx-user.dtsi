@@ -36,9 +36,14 @@
 	};
 };
 
+&usbh_ehci {
+	phys = <&usbphyc_port0>;
+	status = "okay";
+};
+
 &usbotg_hs {
 	dr_mode = "peripheral";
-	phys = <&usbphyc_port0 0>;
+	phys = <&usbphyc_port1 0>;
 };
 
 &usbphyc {
@@ -46,6 +51,10 @@
 };
 
 &usbphyc_port0 {
+	phy-supply = <&vdd_usb>;
+};
+
+&usbphyc_port1 {
 	phy-supply = <&vdd_usb>;
 };
 
