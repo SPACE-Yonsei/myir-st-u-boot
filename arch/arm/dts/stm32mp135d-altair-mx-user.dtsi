@@ -49,6 +49,10 @@
 		voltd-name = "vdd_usb";
 		regulator-name = "vdd_usb";
 	};
+	scmi_usb33: voltd-usb33 {
+		voltd-name = "usb33";
+		regulator-name = "usb33";
+	};
 };
 
 &usbotg_hs {
