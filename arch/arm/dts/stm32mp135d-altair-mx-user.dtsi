@@ -36,33 +36,6 @@
 	};
 };
 
-&scmi_regu {
-	scmi_v3v3: voltd-v3v3 {
-		voltd-name = "v3v3";
-		regulator-name = "v3v3";
-	};
-	scmi_vdd: voltd-vdd {
-		voltd-name = "vdd";
-		regulator-name = "vdd";
-	};
-	scmi_vdd_ddr: voltd-vdd_ddr {
-		voltd-name = "vdd_ddr";
-		regulator-name = "vdd_ddr";
-	};
-	scmi_vddcore: voltd-vddcore {
-		voltd-name = "vddcore";
-		regulator-name = "vddcore";
-	};
-	scmi_vdd_usb: voltd-vdd_usb {
-		voltd-name = "vdd_usb";
-		regulator-name = "vdd_usb";
-	};
-	scmi_usb33: voltd-usb33 {
-		voltd-name = "usb33";
-		regulator-name = "usb33";
-	};
-};
-
 &usbotg_hs {
 	dr_mode = "peripheral";
 	phys = <&usbphyc_port0 0>;
