@@ -43,3 +43,11 @@
 		regulator-always-on;
 	};
 };
+
+&usbotg_hs {
+	u-boot,force-b-session-valid;
+	u-boot,force-vbus-detection;
+	dr_mode = "peripheral";
+	usb-role-switch;
+	role-switch-default-mode = "peripheral";
+};
