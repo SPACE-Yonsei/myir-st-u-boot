@@ -26,12 +26,6 @@
 			no-map;
 		};
 	};
-
-	soc {
-		usbotg_hs {
-			/delete-property/ usb33d-supply;
-		};
-	};
 };
 
 &scmi_regu {
@@ -54,6 +48,10 @@
 	scmi_vdd_usb: voltd-vdd_usb {
 		voltd-name = "vdd_usb";
 		regulator-name = "vdd_usb";
+	};
+	scmi_usb33: voltd-usb33 {
+		voltd-name = "usb33";
+		regulator-name = "usb33";
 	};
 };
 
