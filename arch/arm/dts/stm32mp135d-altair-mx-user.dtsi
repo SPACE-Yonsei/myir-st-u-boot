@@ -26,6 +26,12 @@
 			no-map;
 		};
 	};
+
+	soc {
+		usbotg_hs {
+			/delete-property/ usb33d-supply;
+		};
+	};
 };
 
 &scmi_regu {
