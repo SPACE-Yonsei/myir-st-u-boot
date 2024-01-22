@@ -51,3 +51,15 @@
 	usb-role-switch;
 	role-switch-default-mode = "peripheral";
 };
+
+&usbphyc_port0 {
+	phy-supply = <&vdd_usb>;
+};
+
+&usbphyc_port1 {
+	phy-supply = <&vdd_usb>;
+};
+
+&vdd_usb {
+	u-boot,dm-pre-reloc;
+};
