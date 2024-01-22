@@ -42,8 +42,13 @@
 };
 
 &usbotg_hs {
-	dr_mode = "peripheral";
 	phys = <&usbphyc_port1 0>;
+	u-boot,force-b-session-valid;
+	// u-boot,force-vbus-detection;
+	dr_mode = "peripheral";
+	usb-role-switch;
+	role-switch-default-mode = "peripheral";
+	status = "okay";
 };
 
 &usbphyc {
