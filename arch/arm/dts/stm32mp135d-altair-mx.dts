@@ -35,10 +35,38 @@
 		ranges;
 
 		/* USER CODE BEGIN reserved-memory */
+		optee_framebuffer@dd000000 {
+			reg = <0xdd000000 0x1000000>;
+			no-map;
+		};
+
+		optee@de000000 {
+			reg = <0xde000000 0x2000000>;
+			no-map;
+		};
 		/* USER CODE END reserved-memory */
 	};
 
 	/* USER CODE BEGIN root */
+	aliases {
+		serial0 = &uart4;
+		ethernet0 = &eth1;
+	};
+
+	chosen {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+		stdout-path = "serial0:115200n8";
+	};
+
+	vdd_usb: vdd_usb {
+		compatible = "regulator-fixed";
+		regulator-name = "vdd_usb";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-always-on;
+	};
 	/* USER CODE END root */
 
 	clocks{
@@ -776,6 +804,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN i2c3 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END i2c3 */
 };
 
@@ -786,6 +816,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN i2c4 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END i2c4 */
 };
 
@@ -796,6 +828,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN i2c5 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END i2c5 */
 };
 
@@ -823,6 +857,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN m_can2 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END m_can2 */
 };
 
@@ -840,6 +876,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN qspi */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END qspi */
 };
 
@@ -889,6 +927,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN spi2 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END spi2 */
 };
 
@@ -899,6 +939,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN spi4 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END spi4 */
 };
 
@@ -909,6 +951,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN spi5 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END spi5 */
 };
 
@@ -939,6 +983,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN uart7 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END uart7 */
 };
 
@@ -949,6 +995,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN uart8 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END uart8 */
 };
 
@@ -959,6 +1007,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN usart2 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END usart2 */
 };
 
@@ -969,6 +1019,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN usart3 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END usart3 */
 };
 
@@ -983,6 +1035,7 @@
 	status = "okay";
 
 	/* USER CODE BEGIN usbh_ohci */
+	phys = <&usbphyc_port0>;
 	/* USER CODE END usbh_ohci */
 };
 
@@ -993,6 +1046,12 @@
 	status = "okay";
 
 	/* USER CODE BEGIN usbotg_hs */
+	phys = <&usbphyc_port1 0>;
+	u-boot,force-b-session-valid;
+	// u-boot,force-vbus-detection;
+	dr_mode = "peripheral";
+	usb-role-switch;
+	role-switch-default-mode = "peripheral";
 	/* USER CODE END usbotg_hs */
 };
 
@@ -1007,6 +1066,7 @@
 	status = "okay";
 
 	/* USER CODE BEGIN usbphyc_port0 */
+	phy-supply = <&vdd_usb>;
 	/* USER CODE END usbphyc_port0 */
 };
 
@@ -1014,9 +1074,28 @@
 	status = "okay";
 
 	/* USER CODE BEGIN usbphyc_port1 */
+	phy-supply = <&vdd_usb>;
 	/* USER CODE END usbphyc_port1 */
 };
 
 /* USER CODE BEGIN addons */
+&vdd_usb {
+	u-boot,dm-pre-reloc;
+};
+
+&dma1 {
+	sram = <&dma_pool>;
+};
+
+&dma2 {
+	sram = <&dma_pool>;
+};
+
+&sram {
+	dma_pool: dma-sram@0 {
+		reg = <0x0 0x4000>;
+		pool;
+	};
+};
 /* USER CODE END addons */
 
