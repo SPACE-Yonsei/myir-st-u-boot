@@ -327,18 +327,6 @@
 		};
 	};
 
-	rtc_pins_mx: rtc_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('D', 10, AF0)>; /* RTC_REFIN */
-		};
-	};
-
-	rtc_sleep_pins_mx: rtc_sleep_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('D', 10, ANALOG)>; /* RTC_REFIN */
-		};
-	};
-
 	sdmmc1_pins_mx: sdmmc1_mx-0 {
 		pins1 {
 			pinmux = <STM32_PINMUX('C', 8, AF12)>, /* SDMMC1_D0 */
@@ -862,16 +850,6 @@
 
 	/* USER CODE BEGIN rcc */
 	/* USER CODE END rcc */
-};
-
-&rtc{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&rtc_pins_mx>;
-	pinctrl-1 = <&rtc_sleep_pins_mx>;
-	status = "okay";
-
-	/* USER CODE BEGIN rtc */
-	/* USER CODE END rtc */
 };
 
 &sdmmc1{
