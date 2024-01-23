@@ -11,46 +11,13 @@
 /* USER CODE BEGIN includes */
 /* USER CODE END includes */
 
-#include "stm32mp13-u-boot.dtsi"
-
 / {
-	aliases {
-		mmc0 = &sdmmc1;
-		usb0 = &usbotg_hs;
-	};
 
-	config {
-		//u-boot,boot-led = "led-blue";
-		//u-boot,error-led = "led-red";
-		u-boot,mmc-env-partition = "u-boot-env";
-		st,adc_usb_pd = <&adc1 6>, <&adc1 12>;
-		//st,fastboot-gpios = <&gpioa 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-		//st,stm32prog-gpios = <&gpioa 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-	};
+	/* USER CODE BEGIN root */
+	/* USER CODE END root */
 
-	//leds {
-	//      led-red {
-	//	      color = <LED_COLOR_ID_RED>;
-	//	      gpios = <&gpioa 13 GPIO_ACTIVE_LOW>;
-	//	      default-state = "off";
-	//      };
-	//};
-};
+}; /*root*/
 
-&adc_1 {
-	status = "okay";
-};
+/* USER CODE BEGIN addons */
+/* USER CODE END addons */
 
-&uart4 {
-	u-boot,dm-pre-reloc;
-};
-
-&uart4_pins_mx {
-	u-boot,dm-pre-reloc;
-	pins1 {
-		u-boot,dm-pre-reloc;
-	};
-	pins2 {
-		u-boot,dm-pre-reloc;
-	};
-};
