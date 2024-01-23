@@ -1028,6 +1028,7 @@
 	status = "okay";
 
 	/* USER CODE BEGIN usbh_ehci */
+	phys = <&usbphyc_port0>;
 	/* USER CODE END usbh_ehci */
 };
 
@@ -1035,7 +1036,6 @@
 	status = "okay";
 
 	/* USER CODE BEGIN usbh_ohci */
-	phys = <&usbphyc_port0>;
 	/* USER CODE END usbh_ohci */
 };
 
