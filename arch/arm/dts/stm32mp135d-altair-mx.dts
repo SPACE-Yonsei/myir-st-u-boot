@@ -35,15 +35,6 @@
 		ranges;
 
 		/* USER CODE BEGIN reserved-memory */
-		optee_framebuffer@dd000000 {
-			reg = <0xdd000000 0x1000000>;
-			no-map;
-		};
-
-		optee@de000000 {
-			reg = <0xde000000 0x2000000>;
-			no-map;
-		};
 		/* USER CODE END reserved-memory */
 	};
 
@@ -847,6 +838,8 @@
 	status = "okay";
 
 	/* USER CODE BEGIN m_can1 */
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END m_can1 */
 };
 
@@ -886,6 +879,13 @@
 
 	/* USER CODE BEGIN rcc */
 	/* USER CODE END rcc */
+};
+
+&rtc{
+	status = "okay";
+
+	/* USER CODE BEGIN rtc */
+	/* USER CODE END rtc */
 };
 
 &sdmmc1{
@@ -1047,11 +1047,12 @@
 
 	/* USER CODE BEGIN usbotg_hs */
 	phys = <&usbphyc_port1 0>;
-	u-boot,force-b-session-valid;
+ 	u-boot,force-b-session-valid;
 	// u-boot,force-vbus-detection;
 	dr_mode = "peripheral";
 	usb-role-switch;
 	role-switch-default-mode = "peripheral";
+
 	/* USER CODE END usbotg_hs */
 };
 
