@@ -81,3 +81,94 @@
 		pool;
 	};
 };
+
+// &i2c1 {
+// 	/delete-property/dmas;
+// 	/delete-property/dma-names;
+// };
+
+&i2c2 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&i2c3 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&i2c4 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&i2c5 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&iwdg2 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&m_can2 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+// Comment out if we are using QSPI version
+&qspi {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+// &spi1 {
+// 	/delete-property/dmas;
+// 	/delete-property/dma-names;
+// };
+
+&spi2 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&spi4 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&spi5 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+// &uart4 {
+// 	/delete-property/dmas;
+// 	/delete-property/dma-names;
+// };
+
+// &uart5 {
+// 	/delete-property/dmas;
+// 	/delete-property/dma-names;
+// };
+
+&uart7 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&uart8 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&usart2 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
+
+&usart3 {
+	/delete-property/dmas;
+	/delete-property/dma-names;
+};
