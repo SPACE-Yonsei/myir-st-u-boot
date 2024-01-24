@@ -50,6 +50,11 @@
 	/* USER CODE BEGIN root */
 	aliases {
 		serial0 = &uart4;
+		serial1 = &uart5;
+		serial2 = &uart7;
+		serial3 = &uart8;
+		serial4 = &usart2;
+		serial5 = &usart3;
 		ethernet0 = &eth1;
 	};
 
@@ -66,6 +71,12 @@
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
 		regulator-always-on;
+	};
+
+	sys_mclk: clock-mclk {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <12000000>;
 	};
 	/* USER CODE END root */
 
@@ -1056,8 +1067,7 @@
 
 	/* USER CODE BEGIN usbotg_hs */
 	phys = <&usbphyc_port1 0>;
- 	u-boot,force-b-session-valid;
-	// u-boot,force-vbus-detection;
+	u-boot,force-b-session-valid;
 	dr_mode = "peripheral";
 	usb-role-switch;
 	role-switch-default-mode = "peripheral";
