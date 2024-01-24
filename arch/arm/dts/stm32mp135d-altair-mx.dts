@@ -699,21 +699,14 @@
 	};
 
 	usb_otg_hs_pins_mx: usb_otg_hs_mx-0 {
-		pins1 {
-			pinmux = <STM32_PINMUX('A', 14, AF10)>; /* USB_OTG_HS_SOF */
-			bias-disable;
-			drive-push-pull;
-			slew-rate = <0>;
-		};
-		pins2 {
+		pins {
 			pinmux = <STM32_PINMUX('I', 7, ANALOG)>; /* USB_OTG_HS_VBUS */
 		};
 	};
 
 	usb_otg_hs_sleep_pins_mx: usb_otg_hs_sleep_mx-0 {
 		pins {
-			pinmux = <STM32_PINMUX('A', 14, ANALOG)>, /* USB_OTG_HS_SOF */
-					 <STM32_PINMUX('I', 7, ANALOG)>; /* USB_OTG_HS_VBUS */
+			pinmux = <STM32_PINMUX('I', 7, ANALOG)>; /* USB_OTG_HS_VBUS */
 		};
 	};
 
