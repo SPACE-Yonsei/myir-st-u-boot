@@ -1024,7 +1024,7 @@
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&usart2_pins_mx>;
 	pinctrl-1 = <&usart2_sleep_pins_mx>;
-	status = "disabled";
+	status = "okay";
 
 	/* USER CODE BEGIN usart2 */
 	/delete-property/dmas;
@@ -1036,7 +1036,7 @@
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&usart3_pins_mx>;
 	pinctrl-1 = <&usart3_sleep_pins_mx>;
-	status = "disabled";
+	status = "okay";
 
 	/* USER CODE BEGIN usart3 */
 	/delete-property/dmas;
