@@ -1078,7 +1078,8 @@ dtb-$(CONFIG_STM32MP13x) += \
 	stm32mp135f-dk.dtb \
 	myb-stm32mp135x-base.dtb \
 	myb-stm32mp135x-256m.dtb \
-	myb-stm32mp135x-512m.dtb
+	myb-stm32mp135x-512m.dtb \
+	stm32mp135d-altair-mx.dtb
 
 dtb-$(CONFIG_STM32MP15x) += \
 	stm32mp157a-dk1.dtb \
