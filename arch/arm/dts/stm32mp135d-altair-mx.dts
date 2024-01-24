@@ -1071,7 +1071,6 @@
 	dr_mode = "peripheral";
 	usb-role-switch;
 	role-switch-default-mode = "peripheral";
-
 	/* USER CODE END usbotg_hs */
 };
 
