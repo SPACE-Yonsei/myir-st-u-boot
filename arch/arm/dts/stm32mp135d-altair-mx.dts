@@ -850,12 +850,18 @@
 	status = "okay";
 
 	/* USER CODE BEGIN i2c3 */
-	i2c-scl-rising-time-ns = <285>;
-	i2c-scl-falling-time-ns = <9>;
-	clock-frequency = <400000>;
+	i2c-scl-rising-time-ns = <300>;
+	i2c-scl-falling-time-ns = <300>;
+	clock-frequency = <100000>;
 
 	/delete-property/dmas;
 	/delete-property/dma-names;
+
+	at24@50 {
+		compatible = "atmel,24c32";
+		pagesize = <64>;
+		reg = <0x50>;
+	};
 	/* USER CODE END i2c3 */
 };
 
