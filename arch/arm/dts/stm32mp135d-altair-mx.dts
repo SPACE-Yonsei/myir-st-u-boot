@@ -1075,6 +1075,10 @@
 
 	/* USER CODE BEGIN usbotg_hs */
 	phys = <&usbphyc_port1 0>;
+	u-boot,force-b-session-valid;
+	dr_mode = "peripheral";
+	usb-role-switch;
+	role-switch-default-mode = "peripheral";
 	/* USER CODE END usbotg_hs */
 };
 
