@@ -50,13 +50,17 @@
 	/* USER CODE BEGIN root */
 	aliases {
 		serial0 = &uart4;
-		serial1 = &uart5;
-		serial2 = &uart7;
-		serial3 = &uart8;
-		serial4 = &usart1;
-		serial5 = &usart2;
-		serial6 = &usart3;
-		ethernet0 = &eth1;
+		serial1 = &usart1; // XBee 1
+		serial2 = &usart2; // XBee 2
+		serial3 = &usart3; // MAX-M10S
+		serial7 = &uart7;  // Canopus 1
+		serial8 = &uart8;  // Canopus 2
+
+		i2c1 = &i2c1; // SEN0343
+		i2c2 = &i2c2; // MAX-M10S
+		i2c3 = &i2c3; // Internal EEPROM
+
+		spi1 = &spi1; // Bosch Shuttle Board
 	};
 
 	chosen {
