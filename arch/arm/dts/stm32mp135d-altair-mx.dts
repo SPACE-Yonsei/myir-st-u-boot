@@ -362,90 +362,6 @@
 		};
 	};
 
-	spi2_pins_mx: spi2_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('B', 10, AF6)>, /* SPI2_SCK */
-					 <STM32_PINMUX('B', 13, AF5)>, /* SPI2_NSS */
-					 <STM32_PINMUX('G', 1, AF5)>, /* SPI2_MISO */
-					 <STM32_PINMUX('H', 10, AF6)>; /* SPI2_MOSI */
-			bias-disable;
-			drive-push-pull;
-			slew-rate = <1>;
-		};
-	};
-
-	spi2_sleep_pins_mx: spi2_sleep_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('B', 10, ANALOG)>, /* SPI2_SCK */
-					 <STM32_PINMUX('B', 13, ANALOG)>, /* SPI2_NSS */
-					 <STM32_PINMUX('G', 1, ANALOG)>, /* SPI2_MISO */
-					 <STM32_PINMUX('H', 10, ANALOG)>; /* SPI2_MOSI */
-		};
-	};
-
-	spi3_pins_mx: spi3_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('F', 1, AF5)>, /* SPI3_MOSI */
-					 <STM32_PINMUX('F', 3, AF6)>, /* SPI3_NSS */
-					 <STM32_PINMUX('G', 7, AF5)>, /* SPI3_MISO */
-					 <STM32_PINMUX('H', 13, AF6)>; /* SPI3_SCK */
-			bias-disable;
-			drive-push-pull;
-			slew-rate = <1>;
-		};
-	};
-
-	spi3_sleep_pins_mx: spi3_sleep_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('F', 1, ANALOG)>, /* SPI3_MOSI */
-					 <STM32_PINMUX('F', 3, ANALOG)>, /* SPI3_NSS */
-					 <STM32_PINMUX('G', 7, ANALOG)>, /* SPI3_MISO */
-					 <STM32_PINMUX('H', 13, ANALOG)>; /* SPI3_SCK */
-		};
-	};
-
-	spi4_pins_mx: spi4_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('D', 10, AF5)>, /* SPI4_NSS */
-					 <STM32_PINMUX('E', 11, AF5)>, /* SPI4_MOSI */
-					 <STM32_PINMUX('E', 12, AF5)>, /* SPI4_SCK */
-					 <STM32_PINMUX('E', 13, AF5)>; /* SPI4_MISO */
-			bias-disable;
-			drive-push-pull;
-			slew-rate = <1>;
-		};
-	};
-
-	spi4_sleep_pins_mx: spi4_sleep_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('D', 10, ANALOG)>, /* SPI4_NSS */
-					 <STM32_PINMUX('E', 11, ANALOG)>, /* SPI4_MOSI */
-					 <STM32_PINMUX('E', 12, ANALOG)>, /* SPI4_SCK */
-					 <STM32_PINMUX('E', 13, ANALOG)>; /* SPI4_MISO */
-		};
-	};
-
-	spi5_pins_mx: spi5_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('E', 2, AF5)>, /* SPI5_MOSI */
-					 <STM32_PINMUX('E', 4, AF1)>, /* SPI5_MISO */
-					 <STM32_PINMUX('F', 6, AF5)>, /* SPI5_NSS */
-					 <STM32_PINMUX('G', 10, AF5)>; /* SPI5_SCK */
-			bias-disable;
-			drive-push-pull;
-			slew-rate = <1>;
-		};
-	};
-
-	spi5_sleep_pins_mx: spi5_sleep_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('E', 2, ANALOG)>, /* SPI5_MOSI */
-					 <STM32_PINMUX('E', 4, ANALOG)>, /* SPI5_MISO */
-					 <STM32_PINMUX('F', 6, ANALOG)>, /* SPI5_NSS */
-					 <STM32_PINMUX('G', 10, ANALOG)>; /* SPI5_SCK */
-		};
-	};
-
 	tim1_pwm_pins_mx: tim1_pwm_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('A', 9, AF1)>, /* TIM1_CH2 */
@@ -525,30 +441,6 @@
 		pins {
 			pinmux = <STM32_PINMUX('D', 6, ANALOG)>, /* UART4_TX */
 					 <STM32_PINMUX('D', 8, ANALOG)>; /* UART4_RX */
-		};
-	};
-
-	uart5_pins_mx: uart5_mx-0 {
-		pins1 {
-			pinmux = <STM32_PINMUX('B', 5, AF11)>, /* UART5_RX */
-					 <STM32_PINMUX('C', 3, AF8)>; /* UART5_CTS */
-			bias-disable;
-		};
-		pins2 {
-			pinmux = <STM32_PINMUX('C', 4, AF8)>, /* UART5_RTS */
-					 <STM32_PINMUX('E', 7, AF8)>; /* UART5_TX */
-			bias-disable;
-			drive-push-pull;
-			slew-rate = <0>;
-		};
-	};
-
-	uart5_sleep_pins_mx: uart5_sleep_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('B', 5, ANALOG)>, /* UART5_RX */
-					 <STM32_PINMUX('C', 3, ANALOG)>, /* UART5_CTS */
-					 <STM32_PINMUX('C', 4, ANALOG)>, /* UART5_RTS */
-					 <STM32_PINMUX('E', 7, ANALOG)>; /* UART5_TX */
 		};
 	};
 
@@ -669,30 +561,6 @@
 					 <STM32_PINMUX('D', 11, ANALOG)>, /* USART3_CTS */
 					 <STM32_PINMUX('D', 12, ANALOG)>, /* USART3_RTS */
 					 <STM32_PINMUX('G', 11, ANALOG)>; /* USART3_TX */
-		};
-	};
-
-	usart6_pins_mx: usart6_mx-0 {
-		pins1 {
-			pinmux = <STM32_PINMUX('G', 12, AF7)>, /* USART6_RTS */
-					 <STM32_PINMUX('G', 14, AF7)>; /* USART6_TX */
-			bias-disable;
-			drive-push-pull;
-			slew-rate = <0>;
-		};
-		pins2 {
-			pinmux = <STM32_PINMUX('G', 13, AF7)>, /* USART6_CTS */
-					 <STM32_PINMUX('H', 11, AF7)>; /* USART6_RX */
-			bias-disable;
-		};
-	};
-
-	usart6_sleep_pins_mx: usart6_sleep_mx-0 {
-		pins {
-			pinmux = <STM32_PINMUX('G', 12, ANALOG)>, /* USART6_RTS */
-					 <STM32_PINMUX('G', 13, ANALOG)>, /* USART6_CTS */
-					 <STM32_PINMUX('G', 14, ANALOG)>, /* USART6_TX */
-					 <STM32_PINMUX('H', 11, ANALOG)>; /* USART6_RX */
 		};
 	};
 
@@ -900,54 +768,6 @@
 	/* USER CODE END spi1 */
 };
 
-&spi2{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&spi2_pins_mx>;
-	pinctrl-1 = <&spi2_sleep_pins_mx>;
-	status = "okay";
-
-	/* USER CODE BEGIN spi2 */
-	/delete-property/dmas;
-	/delete-property/dma-names;
-	/* USER CODE END spi2 */
-};
-
-&spi3{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&spi3_pins_mx>;
-	pinctrl-1 = <&spi3_sleep_pins_mx>;
-	status = "okay";
-
-	/* USER CODE BEGIN spi3 */
-	/delete-property/dmas;
-	/delete-property/dma-names;
-	/* USER CODE END spi3 */
-};
-
-&spi4{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&spi4_pins_mx>;
-	pinctrl-1 = <&spi4_sleep_pins_mx>;
-	status = "okay";
-
-	/* USER CODE BEGIN spi4 */
-	/delete-property/dmas;
-	/delete-property/dma-names;
-	/* USER CODE END spi4 */
-};
-
-&spi5{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&spi5_pins_mx>;
-	pinctrl-1 = <&spi5_sleep_pins_mx>;
-	status = "okay";
-
-	/* USER CODE BEGIN spi5 */
-	/delete-property/dmas;
-	/delete-property/dma-names;
-	/* USER CODE END spi5 */
-};
-
 &timers1{
 	status = "okay";
 
@@ -1044,18 +864,6 @@
 	/* USER CODE END uart4 */
 };
 
-&uart5{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&uart5_pins_mx>;
-	pinctrl-1 = <&uart5_sleep_pins_mx>;
-	status = "okay";
-
-	/* USER CODE BEGIN uart5 */
-	/delete-property/dmas;
-	/delete-property/dma-names;
-	/* USER CODE END uart5 */
-};
-
 &uart7{
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&uart7_pins_mx>;
@@ -1112,18 +920,6 @@
 	/delete-property/dmas;
 	/delete-property/dma-names;
 	/* USER CODE END usart3 */
-};
-
-&usart6{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&usart6_pins_mx>;
-	pinctrl-1 = <&usart6_sleep_pins_mx>;
-	status = "okay";
-
-	/* USER CODE BEGIN usart6 */
-	/delete-property/dmas;
-	/delete-property/dma-names;
-	/* USER CODE END usart6 */
 };
 
 &usbh_ehci{
