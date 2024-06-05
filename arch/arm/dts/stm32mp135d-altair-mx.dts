@@ -446,7 +446,7 @@
 		};
 	};
 
-	tim1_pins_mx: tim1_mx-0 {
+	tim1_pwm_pins_mx: tim1_pwm_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('A', 9, AF1)>, /* TIM1_CH2 */
 					 <STM32_PINMUX('E', 9, AF1)>; /* TIM1_CH1 */
@@ -456,14 +456,14 @@
 		};
 	};
 
-	tim1_sleep_pins_mx: tim1_sleep_mx-0 {
+	tim1_pwm_sleep_pins_mx: tim1_pwm_sleep_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('A', 9, ANALOG)>, /* TIM1_CH2 */
 					 <STM32_PINMUX('E', 9, ANALOG)>; /* TIM1_CH1 */
 		};
 	};
 
-	tim2_pins_mx: tim2_mx-0 {
+	tim2_pwm_pins_mx: tim2_pwm_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('E', 15, AF1)>; /* TIM2_CH1 */
 			bias-disable;
@@ -472,13 +472,13 @@
 		};
 	};
 
-	tim2_sleep_pins_mx: tim2_sleep_mx-0 {
+	tim2_pwm_sleep_pins_mx: tim2_pwm_sleep_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('E', 15, ANALOG)>; /* TIM2_CH1 */
 		};
 	};
 
-	tim4_pins_mx: tim4_mx-0 {
+	tim4_pwm_pins_mx: tim4_pwm_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('B', 7, AF2)>; /* TIM4_CH2 */
 			bias-disable;
@@ -487,13 +487,13 @@
 		};
 	};
 
-	tim4_sleep_pins_mx: tim4_sleep_mx-0 {
+	tim4_pwm_sleep_pins_mx: tim4_pwm_sleep_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('B', 7, ANALOG)>; /* TIM4_CH2 */
 		};
 	};
 
-	tim8_pins_mx: tim8_mx-0 {
+	tim8_pwm_pins_mx: tim8_pwm_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('E', 5, AF3)>; /* TIM8_CH3 */
 			bias-disable;
@@ -502,7 +502,7 @@
 		};
 	};
 
-	tim8_sleep_pins_mx: tim8_sleep_mx-0 {
+	tim8_pwm_sleep_pins_mx: tim8_pwm_sleep_mx-0 {
 		pins {
 			pinmux = <STM32_PINMUX('E', 5, ANALOG)>; /* TIM8_CH3 */
 		};
@@ -949,43 +949,87 @@
 };
 
 &timers1{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&tim1_pins_mx>;
-	pinctrl-1 = <&tim1_sleep_pins_mx>;
 	status = "okay";
 
 	/* USER CODE BEGIN timers1 */
+	// PWM Output does not require DMA Access
+	// Save DMA channels
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END timers1 */
+
+	pwm{
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&tim1_pwm_pins_mx>;
+		pinctrl-1 = <&tim1_pwm_sleep_pins_mx>;
+		status = "okay";
+
+		/* USER CODE BEGIN timers1_pwm */
+		/* USER CODE END timers1_pwm */
+	};
 };
 
 &timers2{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&tim2_pins_mx>;
-	pinctrl-1 = <&tim2_sleep_pins_mx>;
 	status = "okay";
 
 	/* USER CODE BEGIN timers2 */
+	// PWM Output does not require DMA Access
+	// Save DMA channels
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END timers2 */
+
+	pwm{
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&tim2_pwm_pins_mx>;
+		pinctrl-1 = <&tim2_pwm_sleep_pins_mx>;
+		status = "okay";
+
+		/* USER CODE BEGIN timers2_pwm */
+		/* USER CODE END timers2_pwm */
+	};
 };
 
 &timers4{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&tim4_pins_mx>;
-	pinctrl-1 = <&tim4_sleep_pins_mx>;
 	status = "okay";
 
 	/* USER CODE BEGIN timers4 */
+	// PWM Output does not require DMA Access
+	// Save DMA channels
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END timers4 */
+
+	pwm{
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&tim4_pwm_pins_mx>;
+		pinctrl-1 = <&tim4_pwm_sleep_pins_mx>;
+		status = "okay";
+
+		/* USER CODE BEGIN timers4_pwm */
+		/* USER CODE END timers4_pwm */
+	};
 };
 
 &timers8{
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&tim8_pins_mx>;
-	pinctrl-1 = <&tim8_sleep_pins_mx>;
 	status = "okay";
 
 	/* USER CODE BEGIN timers8 */
+	// PWM Output does not require DMA Access
+	// Save DMA channels
+	/delete-property/dmas;
+	/delete-property/dma-names;
 	/* USER CODE END timers8 */
+
+	pwm{
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&tim8_pwm_pins_mx>;
+		pinctrl-1 = <&tim8_pwm_sleep_pins_mx>;
+		status = "okay";
+
+		/* USER CODE BEGIN timers8_pwm */
+		/* USER CODE END timers8_pwm */
+	};
 };
 
 &uart4{
