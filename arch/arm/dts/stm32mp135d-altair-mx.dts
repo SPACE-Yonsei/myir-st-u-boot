@@ -328,8 +328,7 @@
 		pins {
 			pinmux = <STM32_PINMUX('A', 3, AF5)>, /* SPI1_MOSI */
 					 <STM32_PINMUX('A', 6, AF5)>, /* SPI1_MISO */
-					 <STM32_PINMUX('A', 7, AF5)>, /* SPI1_SCK */
-					 <STM32_PINMUX('C', 2, AF5)>; /* SPI1_NSS */
+					 <STM32_PINMUX('A', 7, AF5)>; /* SPI1_SCK */
 			bias-disable;
 			drive-push-pull;
 			slew-rate = <1>;
@@ -340,8 +339,7 @@
 		pins {
 			pinmux = <STM32_PINMUX('A', 3, ANALOG)>, /* SPI1_MOSI */
 					 <STM32_PINMUX('A', 6, ANALOG)>, /* SPI1_MISO */
-					 <STM32_PINMUX('A', 7, ANALOG)>, /* SPI1_SCK */
-					 <STM32_PINMUX('C', 2, ANALOG)>; /* SPI1_NSS */
+					 <STM32_PINMUX('A', 7, ANALOG)>; /* SPI1_SCK */
 		};
 	};
 
@@ -777,7 +775,7 @@
 	/* USER CODE BEGIN spi1 */
 	/delete-property/dmas;
 	/delete-property/dma-names;
-	
+
 	cs-gpios = <&gpioc 2 0>;
 
 	master@0 {
