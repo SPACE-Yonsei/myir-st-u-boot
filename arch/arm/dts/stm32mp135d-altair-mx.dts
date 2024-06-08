@@ -777,6 +777,14 @@
 	/* USER CODE BEGIN spi1 */
 	/delete-property/dmas;
 	/delete-property/dma-names;
+	
+	cs-gpios = <&gpioc 2 0>;
+
+	master@0 {
+		compatible = "rohm,dh2228fv";
+		reg = <0>;
+		spi-max-frequency = <1000000>;
+	};
 	/* USER CODE END spi1 */
 };
 
