@@ -375,6 +375,21 @@
 		};
 	};
 
+	tim3_pwm_pins_mx: tim3_pwm_mx-0 {
+		pins {
+			pinmux = <STM32_PINMUX('B', 5, AF2)>; /* TIM3_CH2 */
+			bias-disable;
+			drive-push-pull;
+			slew-rate = <0>;
+		};
+	};
+
+	tim3_pwm_sleep_pins_mx: tim3_pwm_sleep_mx-0 {
+		pins {
+			pinmux = <STM32_PINMUX('B', 5, ANALOG)>; /* TIM3_CH2 */
+		};
+	};
+
 	uart4_pins_mx: uart4_mx-0 {
 		pins1 {
 			pinmux = <STM32_PINMUX('D', 6, AF8)>; /* UART4_TX */
@@ -545,6 +560,55 @@
 	status = "okay";
 
 	/* USER CODE BEGIN adc_1 */
+	adc1: adc@0 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "okay";
+		channel@0 {
+			reg = <0>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@1 {
+			reg = <1>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@2 {
+			reg = <2>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@3 {
+			reg = <3>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@5 {
+			reg = <5>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@6{
+			reg = <6>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@7 {
+			reg = <7>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@8 {
+			reg = <8>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@10 {
+			reg = <10>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@11 {
+			reg = <11>;
+			st,min-sample-time-ns = <10000>;
+		}
+		channel@14 {
+			reg = <1>;
+			st,min-sample-time-ns = <10000>;
+		}
+	}
 	/* USER CODE END adc_1 */
 };
 
@@ -555,6 +619,15 @@
 	status = "okay";
 
 	/* USER CODE BEGIN adc_2 */
+	adc2: adc@0 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "okay";
+		channel@2 {
+			reg = <2>;
+			st,min-sample-time-ns = <10000>;
+		}
+	}
 	/* USER CODE END adc_2 */
 };
 
@@ -746,6 +819,23 @@
 
 		/* USER CODE BEGIN timers2_pwm */
 		/* USER CODE END timers2_pwm */
+	};
+};
+
+&timers3{
+	status = "okay";
+
+	/* USER CODE BEGIN timers3 */
+	/* USER CODE END timers3 */
+
+	pwm{
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&tim3_pwm_pins_mx>;
+		pinctrl-1 = <&tim3_pwm_sleep_pins_mx>;
+		status = "okay";
+
+		/* USER CODE BEGIN timers3_pwm */
+		/* USER CODE END timers3_pwm */
 	};
 };
 
