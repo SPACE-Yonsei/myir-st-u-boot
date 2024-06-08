@@ -608,7 +608,7 @@
 			reg = <1>;
 			st,min-sample-time-ns = <10000>;
 		};
-	}
+	};
 	/* USER CODE END adc_1 */
 };
 
@@ -627,7 +627,7 @@
 			reg = <2>;
 			st,min-sample-time-ns = <10000>;
 		};
-	}
+	};
 	/* USER CODE END adc_2 */
 };
 
